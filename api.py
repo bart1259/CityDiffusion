@@ -1,3 +1,5 @@
+print(f"Importing libraries...")
+
 import fastapi
 from fastapi.middleware.cors import CORSMiddleware
 import diffusers
@@ -10,7 +12,7 @@ import numpy as np
 
 noise_scheduler = None
 model = None
-device = "cuda"
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 app = fastapi.FastAPI()
 app.add_middleware(
@@ -95,7 +97,7 @@ async def run_model(body: dict):
 
         current_image = input_image.clone()
 
-        for t in noise_scheduler.timesteps:  # <- use scheduler timesteps, already on CUDA
+        for t in noise_scheduler.timesteps:
             print(f"Processing timestep {t}")
             # noise = torch.randn_like(current_image)
             # noisy_image = noise_scheduler.add_noise(current_image, noise, t)

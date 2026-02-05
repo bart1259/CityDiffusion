@@ -56,7 +56,7 @@
     }
 
     async function callApi(b64Image, b64Mask, steps) {
-        const url = `http://localhost:6621/generate`;
+        const url = `/generate`;
         const body = {
             image_b64: b64Image,
             mask_b64: b64Mask,

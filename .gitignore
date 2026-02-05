@@ -1,0 +1,28 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+out
+runs
+datasets
+data
+cache
+city_diffusion_ddpm
+city_diffusion_ddpm_final
+.ipynb_checkpoints
+
+CityGan.ipynb
+GLTest.ipynb
+hello_world.py
+GenTrainData.py
+TrainDiffusion.py
+pushToHub.py
+
+*.gml
+*.out
